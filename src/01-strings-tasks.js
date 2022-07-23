@@ -252,13 +252,8 @@ function encodeToRot13(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function type(value) {
-  const regex = /^\[object (\S+?)\]$/;
-  const matches = Object.prototype.toString.call(value).match(regex) || [];
-  return (matches[1] || 'undefined').toLowerCase();
-}
 function isString(value) {
-  return type(value) === 'string';
+  return typeof value === 'string' ? true : value instanceof String;
 }
 
 
